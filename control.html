@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru_RU">
+
+<head>
+  <meta charset="utf-8" />
+  <title>ФЛЭШ МНЕ В ОЧКО</title>
+  <link rel="icon" type="image/png" sizes="96x96" href="https://flashupenergy.ru/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://flashupenergy.ru/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://flashupenergy.ru/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="https://flashupenergy.ru/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</head>
+
+<header>
+
+  <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="https://flashupenergy.ru/img/logo/logo.svg" alt="Logo" width="70" height="60" class="d-inline-block align-text-top">
+        <img src="https://src.guap.ru/logos/guap/guap-sign_w.svg" alt="Logo" width="70" height="50" class="d-inline-block align-text-top">
+      </a>
+    </div>
+  </nav>
+
+
+</header>
+
+
+<!--  Выбор -->
+
+ 
+
+<body>
+
+
+
+
+
+               
+  
+  <div class="container mt-3 pt-5 pb-5">
+
+    <form id="tg">
+<div class="flash"> 
+
+  <!-- form group-->
+       <div class="form-group">
+        <label for="exampleFormControlTextarea1" class="form-label">Сообщение от бота</label>
+        <input type="text" name="name" class="form-control">
+       </div>
+       
+      
+       
+        <!-- form group-->
+
+       <!--<div class="form-group">
+        <label for="exampleFormControlTextarea1" class="form-label">Кабинет</label>
+        <input type="text" name="cabinet" class="form-control">
+       </div> --->
+       
+       <div id="sucsess"  class="alert alert-sucsess" role="alert">
+       
+      </div>
+       <button type="submit" class="btn btn-primary "> Заказать</button>
+    </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+
+     <script>
+      const TOKEN = "7065313004:AAFUuiL9OJlc3EN_BZZBQRcSMtluFdnZR7g";
+      const CHAT_ID= "-1002111898330";
+      const URL_API = "https://api.telegram.org/bot7065313004:AAFUuiL9OJlc3EN_BZZBQRcSMtluFdnZR7g/sendMessage";
+      const ALERT = document.getElementById('sucсses');
+
+
+      document.getElementById('tg').addEventListener('submit', function(e) {
+
+        e.preventDefault();
+
+        let message = `<b> </b>\n`;
+       
+        message +=`<b>  ${  this.name.value}</b>  \n`;
+   
+      
+       
+       axios.post(URL_API, {
+
+        chat_id: CHAT_ID,
+        parse_mode: 'html',
+        text: message,
+      })
+
+
+.then((res) => {
+  this.flash.value = " "
+  this.name.value = " "
+  this.group.value = " "
+  this.telega.value = " "
+ 
+  sucsess.innerHTML = 'Декан, какого хуя дождь блять'
+  sucsess.style.display = "block";
+ 
+})
+.cath((err) => {
+  console.warn(err)
+})
+.fianlly(() => {
+  console.log('Конец')
+})
+      })
+
+     </script>
+  </div>
+
+
+</body>
+<div class="bottom text-bg-dark p-3 mt-5 pt-5 pb-5 ">Бюджет сайта: 1 энергос создателю в неделю
+ <br> <a href="index2.html"> Юридическая информация</a>  </br> 
+</div>
+
+</html>
